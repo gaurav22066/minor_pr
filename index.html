@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expiration Date Detector</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Expiration Date Detector</h1>
+            <p>Upload product images to detect expiration dates using AI</p>
+        </header>
+
+        <main>
+            <section class="card" id="upload-section">
+                <h2>Upload Image</h2>
+                <form id="uploadForm">
+                    <div class="file-input-container">
+                        <input type="file" id="imageInput" accept="image/*" required>
+                    </div>
+                    <button type="submit" id="detectButton">Detect Dates</button>
+                </form>
+            </section>
+            <div class="mobile-upload-options">
+                <label for="cameraUpload" class="upload-btn">Upload from Camera</label>
+                <input type="file" id="cameraUpload" accept="image/*" capture="environment" style="display:none;">
+
+                <label for="galleryUpload" class="upload-btn">Upload from Gallery</label>
+                <input type="file" id="galleryUpload" accept="image/*" style="display:none;">
+
+                <button type="button" id="mobileDetectButton">Detect Dates</button>
+            </div>
+            <div class="preview-section">
+                <h2>Preview</h2>
+                <div class="image-container">
+                    <img id="imagePreview" src="" alt="Uploaded Image">
+                    <div class="box" id="boundingBox" style="display: none;"></div>
+                </div>
+                <div id="result" class="result-item" style="display: none;">
+                    <strong>Detected Expiration Date:</strong> <span id="dateText"></span>
+                </div>
+            </div>
+
+            <!-- Loading  -->
+            <div id="loading" class="loading">
+                <div class="spinner"></div>
+                <p>Processing image...</p>
+            </div>
+
+            <!-- Results  -->
+            <section class="card" id="results-section">
+                <div class="image-container">
+                    <img id="imagePreview" alt="Preview">
+                    <div id="boundingBoxes"></div>
+                </div>
+                <div id="results"></div>
+            </section>
+
+            <!-- Analysis  -->
+            <section class="card" id="analysis-section">
+                <h2>Text Analysis</h2>
+                <div class="analysis-grid">
+                    <div class="analysis-box">
+                        <h3>Original Text</h3>
+                        <div id="originalText" class="text-content"></div>
+                    </div>
+                    <div class="analysis-box">
+                        <h3>Translated Text</h3>
+                        <div id="translatedText" class="text-content"></div>
+                    </div>
+                    <div class="analysis-box full-width">
+                        <h3>Expiration Date</h3>
+                        <div id="analysisResult" class="text-content"></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
