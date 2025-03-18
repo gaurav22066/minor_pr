@@ -165,7 +165,9 @@ h2 {
   text-align: center;
   margin-top: 15px;
 }
-
+.mobile-detect{
+  display: none;
+}
 .upload-btn {
   display: inline-block;
   background-color: #3b82f6;
@@ -182,9 +184,17 @@ h2 {
 
 @media (max-width: 768px) {
   .mobile-upload-options {
-    display: block;
+    display: flex;
+    justify-content: space-around;
+    align-items: center; 
+    margin-top: 15px;
   }
-
+ 
+  .mobile-detect{
+    display: block;
+    margin-top: 20px;
+    text-align: center;
+  }
   #imageInput, #detectButton {
     display: none;
   }
