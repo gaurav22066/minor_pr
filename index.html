@@ -5,7 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expiration Date Detector</title>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
     <link rel="stylesheet" href="styles.css">
 </head>
 
@@ -17,24 +21,40 @@
         </header>
 
         <main>
+
             <section class="card" id="upload-section">
                 <h2>Upload Image</h2>
                 <form id="uploadForm">
                     <div class="file-input-container">
                         <input type="file" id="imageInput" accept="image/*" required>
                     </div>
-                    <button type="submit" id="detectButton">Detect Dates</button>
+                    <button type="submit" id="detectButton"><i class="fa-solid fa-calendar-check"></i> Detect
+                        Dates</button>
                 </form>
             </section>
+
             <div class="mobile-upload-options">
-                <label for="cameraUpload" class="upload-btn">Upload from Camera</label>
+                <label for="cameraUpload" id="camera"class="upload-btn">
+                    <i class="fa-solid fa-camera"></i> <br> Camera
+                </label>
                 <input type="file" id="cameraUpload" accept="image/*" capture="environment" style="display:none;">
+                <br>
 
-                <label for="galleryUpload" class="upload-btn">Upload from Gallery</label>
+                <label for="galleryUpload" id="gallery"class="upload-btn">
+                    <i class="fa-solid fa-image"></i> <br>Gallery
+                </label>
                 <input type="file" id="galleryUpload" accept="image/*" style="display:none;">
+                <br>
+                <button type="button" id="test"class="upload-btn">Test</button>
+                <br><br>
 
-                <button type="button" id="mobileDetectButton">Detect Dates</button>
+
             </div>
+            <div class="mobile-detect">
+            <button type="button" id="mobileDetectButton">
+                <i class="fa-solid fa-calendar-check"></i> Detect Dates
+            </button>
+        </div>
             <div class="preview-section">
                 <h2>Preview</h2>
                 <div class="image-container">
@@ -42,47 +62,50 @@
                     <div class="box" id="boundingBox" style="display: none;"></div>
                 </div>
                 <div id="result" class="result-item" style="display: none;">
-                    <strong>Detected Expiration Date:</strong> <span id="dateText"></span>
+                    <strong>Detected Expiration Date:</strong>
+                    <span id="dateText"></span>
                 </div>
             </div>
 
-            <!-- Loading  -->
-            <div id="loading" class="loading">
-                <div class="spinner"></div>
+            <div id="loading" class="loading" style='display:none;'>
+                <div class='spinner'></div>
                 <p>Processing image...</p>
             </div>
 
-            <!-- Results  -->
-            <section class="card" id="results-section">
-                <div class="image-container">
-                    <img id="imagePreview" alt="Preview">
-                    <div id="boundingBoxes"></div>
+            <section class='card' id='results-section'>
+                <div class='image-container'>
+                    <img id='processedImagePreview' alt='Processed Preview'>
+                    <div id='boundingBoxes'></div>
                 </div>
-                <div id="results"></div>
+                <div id='results'></div>
             </section>
 
-            <!-- Analysis  -->
-            <section class="card" id="analysis-section">
+            <section class='card' id='analysis-section'>
                 <h2>Text Analysis</h2>
-                <div class="analysis-grid">
-                    <div class="analysis-box">
+                <div class='analysis-grid'>
+                    <div class='analysis-box'>
                         <h3>Original Text</h3>
-                        <div id="originalText" class="text-content"></div>
+                        <div id='originalText' class='text-content'></div>
                     </div>
-                    <div class="analysis-box">
+
+                    <div class='analysis-box'>
                         <h3>Translated Text</h3>
-                        <div id="translatedText" class="text-content"></div>
+                        <div id='translatedText' class='text-content'></div>
                     </div>
-                    <div class="analysis-box full-width">
+
+                    <div class='analysis-box full-width'>
                         <h3>Expiration Date</h3>
-                        <div id="analysisResult" class="text-content"></div>
+                        <div id='analysisResult' class='text-content'></div>
                     </div>
                 </div>
             </section>
+
         </main>
+
     </div>
 
-    <script src="script.js"></script>
+    <script src='script.js'></script>
+
 </body>
 
 </html>
